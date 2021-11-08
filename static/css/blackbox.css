@@ -1,0 +1,29 @@
+.bootstrap-big-icon {
+    position: absolute;
+    opacity: .05;
+    transform: rotate(20deg);
+    margin-right: 225px;
+}
+
+.bg-box-primary {
+
+    background-color: #191E25 !important;
+    
+}
+
+.hero-image {
+    background-image: url("black-box-bcg.jpg"); /* The image used */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    opacity: 0.5;
+  }
+.bg-button-primary {
+
+    background-color: #F8BD7A !important;
+}
+
+.tx-accent {
+
+    color: #F8BD7A !important;
+}
