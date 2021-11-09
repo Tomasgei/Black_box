@@ -15,7 +15,7 @@
   </head>
   <body>
     <nav id="navbar-main" aria-label="Primary navigation"
-        class="navbar navbar-main navbar-expand-lg bg-box-primary headroom navbar-dark headroom--not-bottom headroom--not-top headroom--pinned">
+        class="navbar navbar-main navbar-expand-lg bg-bx-primary headroom navbar-dark headroom--not-bottom headroom--not-top headroom--pinned ">
         <div class="container position-relative"><a class="navbar-brand me-lg-5" href="./index.html"><img
                     class="navbar-brand-dark" src="{% static '/assets/img/black_box_logo.png' %}" alt="Logo light"> BlackBox <img
                     class="navbar-brand-light" src="./assets/img/brand/dark.svg" alt="Logo dark"></a>
@@ -31,7 +31,7 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="frontPagesDropdown"
-                            aria-expanded="false" data-bs-toggle="dropdown">Pages <span
+                            aria-expanded="false" data-bs-toggle="dropdown">Features <span
                                 class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
                         <div class="dropdown-menu dropdown-megamenu px-0 py-2 p-lg-4" aria-labelledby="frontPagesDropdown">
                             <div class="row">
@@ -152,7 +152,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="dashboardDropdown"
-                            aria-expanded="false" data-bs-toggle="dropdown">Dashboard <span
+                            aria-expanded="false" data-bs-toggle="dropdown">Pricing<span
                                 class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
                         <div class="dropdown-menu dropdown-megamenu-sm px-0 py-2 p-lg-4"
                             aria-labelledby="dashboardDropdown">
@@ -207,7 +207,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" id="componentsDropdown"
-                            aria-expanded="false" data-bs-toggle="dropdown">Components <span
+                            aria-expanded="false" data-bs-toggle="dropdown">Blog <span
                                 class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
                         <div class="dropdown-menu dropdown-megamenu-md p-0" aria-labelledby="componentsDropdown">
                             <div class="row g-0">
@@ -286,7 +286,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                            id="supportDropdown" aria-expanded="false">Support <span
+                            id="supportDropdown" aria-expanded="false">About<span
                                 class="fas fa-angle-down nav-link-arrow ms-1"></span></a>
                         <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="supportDropdown">
                             <div class="col-auto px-0">
@@ -310,165 +310,138 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-flex align-items-center"><a
-                    href="https://themesberg.com/docs/bootstrap-5/pixel/getting-started/quick-start/" target="_blank"
-                    class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-in-alt"></span>
-                    Log In</a> <a href="https://themesberg.com/product/ui-kit/pixel-free-bootstrap-5-ui-kit" target="_blank"
-                    class="btn btn-tertiary"><i class="fas fa-user-plus"></i> Sign In</a> <button
-                    class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global"
-                    aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button></div>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+            
+                <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.email }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                    <a class="dropdown-item" href="#">My account</a>
+                    <a class="dropdown-item" href="#">Change password</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                </div>
+                </li>
+            </ul>
+            {% else %}
+            <div class="d-flex align-items-center">
+                <a href="{% url 'login' %}" target="_blank" class="btn btn-outline-gray-100 d-none d-lg-inline me-md-3"><span class="fas fa-sign-in-alt"></span>Log In</a>
+                <a href="{% url 'signup' %}" target="_blank" class="btn btn-tertiary"><i class="fas fa-user-plus"></i> Sign In</a> 
+                <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button></div>
             </div>
+            {% endif %}
     </nav>
-    <section class="section-header bg-box-primary text-white">
+    <section class="section-header bg-bx-primary-hero text-white">
         <div class="container">
-            <div class="bootstrap-big-icon"><svg xmlns="http://www.w3.org/2000/svg" width="700" height="622"
-                class="d-block my-1" viewBox="0 0 118 94" role="img">
-                <title>Bootstrap</title>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
-                    fill="currentColor"></path>
-            </svg></div>
             <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-md-7 col-lg-6 text-center text-md-left">
+                <div class="col-12 col-md-7 col-lg-6 text-center text-md-left ">
                     <h1 class="display-2 mb-4">Automated <br class="d-none d-md-inline"><span class="tx-accent">multi-asset </span><br class="d-none d-md-inline">trading platform</h1>
                     <p class="lead mb-4 text-muted">One stop shop to utilize institutional grade 
                         quantitative trading models to you trading account
                     </p><a href="./services.html"
-                        class="btn  bg-button-primary me-3 animate-up-2">What we do <span class="ms-2"><span
-                                class="fas fa-arrow-right"></span></span></a>
+                        class="btn  bg-button-primary me-3 animate-up-2">Start here <span class="ms-2"><span
+                        class="fas fa-arrow-right"></span></span></a>
                 </div>
-
-
-
                 <div class="col-12 col-md-5 d-none d-md-block text-center"><img
                         src="{% static 'assets/img/illustrations/about-illustration.svg' %}" alt=""></div>
-                       
-                    
-
             </div>
         </div>
     </section>
-    <main>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 text-center mt-6 mb-2 ">
-            <h2 class="display-2 fw-bold">Supported brokers</h2>
-            <p class="lead">Open account with our supported brokers and start trading now</p>
+{% block content %}
+{% endblock %}
+<footer class="footer pt-6 pb-5 bg-bx-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="navbar-brand-dark mb-4" height="35" src="{% static '/assets/img/black_box_logo.png' %}"
+                    alt="Logo light">
+                <p>BlackBox is multi asset online platform for algorithmic and quantitative trading trough brokers api.</p>
+                <ul class="social-buttons mb-5 mb-lg-0">
+                    <li>
+                        <a href="https://twitter.com/themesberg" aria-label="twitter social link"
+                            class="icon-white me-2">
+                            <span class="fab fa-twitter"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/themesberg/" class="icon-white me-2"
+                            aria-label="facebook social link">
+                            <span class="fab fa-facebook"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/themesberg" aria-label="github social link" class="icon-white me-2">
+                            <span class="fab fa-github"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://dribbble.com/themesberg" class="icon-white" aria-label="dribbble social link">
+                            <span class="fab fa-dribbble"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                <span class="h5">Themesberg</span>
+                <ul class="footer-links mt-2">
+                    <li><a target="_blank" href="https://themesberg.com/blog">Blog</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/themes">Themes</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about">About Us</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                <span class="h5">Other</span>
+                <ul class="footer-links mt-2">
+                    <li><a href="https://themesberg.com/docs/bootstrap-5/pixel/getting-started/quick-start/"
+                            target="_blank">Docs</a></li>
+                    <li><a href="https://themesberg.com/docs/pixel-bootstrap/getting-started/changelog"
+                            target="_blank">Changelog</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/licensing">License</a>
+                    </li>
+                    <li><a target="_blank"
+                            href="https://github.com/themesberg/pixel-bootstrap-ui-kit/issues">Support</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 mb-5 mb-lg-0">
+                <span class="h5">Subscribe</span>
+                <p class="text-muted font-small mt-2">Join our mailing list. We write rarely, but only the best content.
+                </p>
+                <form action="#">
+                    <div class="form-row mb-2">
+                        <div class="col-12">
+                            <label class="h6 fw-normal text-muted d-none" for="exampleInputEmail3">Email address</label>
+                            <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email"
+                                aria-label="Subscribe form" id="exampleInputEmail3" required>
+                        </div>
+                        <div class="col-12 d-grid">
+                            <button type="submit" class="btn btn-tertiary" data-loading-text="Sending">
+                                <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="text-muted font-small m-0">We’ll never share your details. See our <a class="text-white"
+                        href="#">Privacy Policy</a></p>
+            </div>
         </div>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="{% static '/assets/img/interactive-brokers-vector-logo.svg' %}" class="img-fluid image-lg p-2"
-                        alt="Airbnb logo">
-                        <a href="#" class="btn btn-primary btn-sm my-3">Open Account</a>
-                        <div class="card-text">www.interactivebrokers.com</div>
+        <hr class="bg-secondary my-3 my-lg-5">
+        <div class="row">
+            <div class="col mb-md-0">
+                <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center mb-3">
+                    <img src="{% static '/assets/img/black_box_logo.png' %}" height="30" class="me-2" alt="Themesberg Logo">
+                    <p class="text-white fw-bold footer-logo-text m-0">Themesberg</p>
+                </a>
+                <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                    <p class="fw-normal font-small mb-0">Copyright © BlackBox 2019-<span
+                            class="current-year">2021</span>. All rights reserved.</p>
                 </div>
-                
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="{% static '/assets/img/oanda-vector-logo.svg' %}" class="img-fluid image-lg p-2"
-                        alt="Paypal logo">
-                        <a href="#" class="btn btn-primary btn-sm my-3">Open Account</a>
-                        <div class="card-text">www.oanda.com</div>
-                </div>
-                
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="{% static '/assets/img/FTX_logo.png' %}" class="img-fluid image-lg p-6"
-                        alt="Ebay logo">
-                        <a href="#" class="btn btn-primary btn-sm my-3">Open Account</a>
-                        <div class="card-text">www.ftx.com</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="../../assets/img/clients/forbes.svg" class="img-fluid image-sm"
-                        alt="Forbes logo"> <span class="d-block mt-3"><span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span></span>
-                    <p class="card-text py-4 mb-0">Some quick example text to build on the card title and make up the
-                        bulk of the card's content.</p><a href="#" class="btn btn-primary btn-sm">See story</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="../../assets/img/clients/corsair.svg" class="img-fluid image-sm"
-                        alt="Corsair Logo"> <span class="d-block mt-3"><span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span></span>
-                    <p class="card-text py-4 mb-0">Some quick example text to build on the card title and make up the
-                        bulk of the card's content.</p><a href="#" class="btn btn-primary btn-sm">See story</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 text-center">
-            <div class="card border-gray-300 mb-4">
-                <div class="card-body py-5"><img src="../../assets/img/clients/docker.svg" class="img-fluid image-sm"
-                        alt="Docker Logo"> <span class="d-block mt-3"><span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span> <span
-                            class="star fas fa-star text-warning"></span></span>
-                    <p class="card-text py-4 mb-0">Some quick example text to build on the card title and make up the
-                        bulk of the card's content.</p><a href="#" class="btn btn-primary btn-sm">See story</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="nav-wrapper position-relative mb-2">
-    <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-text" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-bs-toggle="tab" href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-bs-toggle="tab" href="#tabs-text-2" role="tab" aria-controls="tabs-text-2" aria-selected="false">Profile</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-3-tab" data-bs-toggle="tab" href="#tabs-text-3" role="tab" aria-controls="tabs-text-3" aria-selected="false">Messages</a>
-        </li>
-    </ul>
-</div>
-<div class="card border-0">
-    <div class="card-body p-0">
-        <div class="tab-content" id="tabcontent1">
-            <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel" aria-labelledby="tabs-text-1-tab">
-                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus,
-                    Marfa eiusmod Pinterest in do umami readymade swag.</p>
-                <p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity.</p>
-            </div>
-            <div class="tab-pane fade" id="tabs-text-2" role="tabpanel" aria-labelledby="tabs-text-2-tab">
-                <p>Photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod
-                    Pinterest in do umami readymade swag.</p>
-                <p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity.</p>
-            </div>
-            <div class="tab-pane fade" id="tabs-text-3" role="tabpanel" aria-labelledby="tabs-text-3-tab">
-                <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus,
-                    Marfa eiusmod Pinterest in do umami readymade swag.</p>
-                <p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity.</p>
             </div>
         </div>
     </div>
-</div>
-
-</main>
-
-
+</footer>
 <!-- Core -->
 <script src="{% static '/vendor/@popperjs/core/dist/umd/popper.min.js' %}"></script>
 <script src="{% static '/vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="section section-lg py-sm-4">
+        <div class="container z-2 mt-sm-n6 mt-md-n7"><div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-1 ">
+                <div class="card bg-white border-gray-300 text-gray p-4">
+                    <div class="card-header bg-white border-0 pb-0">
+                        <i class="fas fa-wifi fa-lg mb-3"></i>
+                        <h2 class="h4 m-0">Connect your broker account</h2>
+                    </div>
+                        <div class="card-body"><p>Send photos and videos instantly. You can even capture the moments that matter to you most with a built-in camera.</p><a href="#" class="btn btn-sm btn-secondary-app animate-up-2 mt-3">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-1 ">
+                <div class="card bg-white border-gray-300 text-gray p-4">
+                    <div class="card-header bg-white border-0 pb-0">
+                        <i class="fas fa-chart-line fa-lg mb-3"></i>
+                        <h2 class="h4 m-0">Asses your investment style</h2>
+                    </div>
+                        <div class="card-body"><p>With voice calls, you can talk to your friends and family for free*, even if they're in another country or another continent.</p><a href="#" class="btn btn-sm btn-secondary-app animate-up-2 mt-3">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-1">
+                <div class="card bg-white border-gray-300 text-gray p-4">
+                    <div class="card-header bg-white border-0 pb-0">
+                        <i class="fas fa-sync-alt fa-lg mb-3"></i>
+                        <h2 class="h4 m-0">Automate your investments</h2>
+                    </div>
+                        <div class="card-body"><p>With voice calls, you can talk to your friends and family for free*, even if they're in another country or another continent.</p><a href="#" class="btn btn-sm btn-secondary-app animate-up-2 mt-3">Learn more</a>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="section section-lg">
+        
+        <div class="container">
+            <h3 class="h1 ">Introducing BlackBox</h3>
+            <div class="row justify-content-between align-items-left">
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex flex-wrap justify-content-lg-center">
+                        <h2 class="h3 text-center text-lg-left mb-5">Multi asset trading automated platform</h2>
+                        <div class="my-4">
+                            <div class="d-flex">
+                                <div class="me-3 me-md-4">
+                                    <div class="icon icon-md icon-secondary-app">
+                                        <span class="fas fa-shield-alt"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4">Stocks & ETF</h3>
+                                    <p>When end-to-end encrypted, your messages and calls are secured so only you and the person you're communicating with can read or listen to them, and nobody in between, not even Impact.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="d-flex">
+                                <div class="me-3 me-md-4">
+                                    <div class="icon icon-md icon-secondary-app">
+                                        <span class="fas fa-user-circle"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4">Forex / CFD</h3>
+                                    <p>Keep in touch with the groups of people that matter the most, like your family or coworkers. With group chats, you can share messages, photos, and videos with up to 256 people at once.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="d-flex">
+                                <div class="me-3 me-md-4">
+                                    <div class="icon icon-md icon-secondary-app">
+                                        <span class="fas fa-file-alt"></span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="h4">Crypto</h3><p>Send PDFs, documents, spreadsheets, slideshows and more, without the hassle of email or file sharing apps. You can send documents up to 100 MB, so it's easy to get what you need over to who you want.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5"><img class="d-none d-lg-inline-block" src="{% static '/assets/img/landing_3.svg' %}"  alt="Mobile App Illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section section-sm py-0">
+        <div class="container">
+            <div class="row text-center mb-2">
+                <div class="col">
+                    <h2 class="h6 fw-normal text-brown">Supported brokers and exchanges</h2>
+                </div>
+            </div>
+            <div class="row text-center mb-2">
+                <div class="col d-flex justify-content-center flex-wrap ">
+                    <img class="mx-auto" src="{% static '/assets/img/interactive-brokers-vector-logo.svg' %}" style="width:200px;height:200px;" alt= "Interactive brokers logo">
+                    <img class="mx-auto" src="{% static '/assets/img/oanda-vector-logo.svg' %}" style="width:150px;height:200px;" alt= "Oanda logo">
+                    <img class="mx-auto" src="{% static '/assets/img/FTX_logo_black.svg' %}" style="width:100px;height:200px;" alt= "FTX exchange logo">
+                    <img class="mx-auto" src="{% static '/assets/img/binance.svg' %}" style="width:150px;height:200px;" alt= "Binance logo">
+                    <img class="mx-auto" src="{% static '/assets/img/bitfinex.svg' %}" style="width:150px;height:200px;" alt= "Bitfinex logo">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

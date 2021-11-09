@@ -1,3 +1,8 @@
+body {
+
+    background-color: #F2F4F6;
+}
+
 .bootstrap-big-icon {
     position: absolute;
     opacity: .05;
@@ -5,18 +10,25 @@
     margin-right: 225px;
 }
 
-.bg-box-primary {
+.bg-bx-primary {
 
     background-color: #191E25 !important;
     
 }
+
+.bg-bx-primary-hero {
+
+    background-color: #191E25 !important;
+    
+}
+
 
 .hero-image {
     background-image: url("black-box-bcg.jpg"); /* The image used */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-    opacity: 0.5;
+    opacity: 0.1;
   }
 .bg-button-primary {
 
