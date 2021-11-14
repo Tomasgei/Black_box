@@ -25,4 +25,4 @@ class User_profile(models.Model):
 
     @property
     def get_avatar(self):
-        return self.avatar.url
+        return self.avatar.url if self.avatar else static('webapp/assets/img/avatar.svg')
