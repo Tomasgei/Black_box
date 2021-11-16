@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'app',
     'accounts',
     'tradingapp',
+    'portfolio',
     'blog',
-    'tinymce',
     
     
 ]
